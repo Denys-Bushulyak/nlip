@@ -11,6 +11,7 @@ license = "MIT"
 license-file = "LICENSE"
 keywords = ["ai", "agents", "nlip","DS", "protocol"]
 categories = ["network-programming","data-structures"]
+exclude = [".devcontainer", ".github", "Makefile"]
 
 [dependencies]
 json-syntax = "0.12.5"

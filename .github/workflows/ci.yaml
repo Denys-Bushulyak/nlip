@@ -1,0 +1,43 @@
+name: Rust CI/CD
+
+on:
+    push:
+        branches: ["main", "master"]
+    pull_request:
+        branches: ["main", "master"]
+    release:
+        types: [published]
+
+jobs:
+    # 1. Запуск тестів через Makefile
+    test:
+        name: Run Makefile Tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install Rust toolchain
+              uses: dtolnay/rust-toolchain@stable
+
+            - name: Cache dependencies
+              uses: swatinem/rust-cache@v2
+
+            - name: Execute tests from Makefile
+              run: make test
+
+    # 2. Публікація в crates.io (тільки при релізі)
+    publish:
+        name: Publish to Crates.io
+        needs: test
+        if: github.event_name == 'release'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Install Rust toolchain
+              uses: dtolnay/rust-toolchain@stable
+
+            - name: Publish
+              env:
+                  CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
+              run: cargo publish

@@ -1,0 +1,10 @@
+{
+	"name": "Rust Development",
+	"image": "mcr.microsoft.com/devcontainers/rust:1",
+	"features": {
+		"ghcr.io/devcontainers/features/rust:1": {}
+	},
+	"remoteUser": "vscode",
+	"initializeCommand": "echo 'Rust development environment ready'",
+	"onCreateCommand": "rustc --version && cargo install cargo-llvm-cov"
+}

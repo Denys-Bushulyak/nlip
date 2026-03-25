@@ -1,0 +1,8 @@
+[package]
+name = "nlip"
+description = "Natural Language Interaction Protocol (NLIP) Data Structures"
+version = "0.0.1"
+edition = "2024"
+
+[dependencies]
+json-syntax = "0.12.5"

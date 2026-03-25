@@ -1,8 +1,16 @@
 [package]
 name = "nlip"
 description = "Natural Language Interaction Protocol (NLIP) Data Structures"
+authors = ["Denys Bushuliak <denys.bushuliak@icloud.com>"]
 version = "0.0.1"
 edition = "2024"
+readme = "README.md"
+homepage = "https://github.com/Denys-Bushulyak/nlip"
+repository = "https://github.com/Denys-Bushulyak/nlip"
+license = "MIT"
+license-file = "LICENSE"
+keywords = ["ai", "agents", "nlip","DS", "protocol"]
+categories = ["network-programming","data-structures"]
 
 [dependencies]
 json-syntax = "0.12.5"

@@ -9,7 +9,6 @@ on:
         types: [published]
 
 jobs:
-    # 1. Запуск тестів через Makefile
     test:
         name: Run Makefile Tests
         runs-on: ubuntu-latest
@@ -25,7 +24,6 @@ jobs:
             - name: Execute tests from Makefile
               run: make test
 
-    # 2. Публікація в crates.io (тільки при релізі)
     publish:
         name: Publish to Crates.io
         needs: test
